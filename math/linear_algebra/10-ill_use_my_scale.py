@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import numpy as np
-
 """
 Module to calculate the shape of a numpy.ndarray
 """
