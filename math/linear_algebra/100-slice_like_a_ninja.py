@@ -4,8 +4,6 @@
 Module for slicing a numpy array along specified axes.
 """
 
-import numpy as np
-
 
 def np_slice(matrix, axes={}):
     """
