@@ -22,7 +22,6 @@ def cat_matrices(mat1, mat2, axis=0):
     if isinstance(mat1[0], (int, float)) and isinstance(mat2[0], (int, float)):
         return mat1 + mat2
 
-    # Handle multi-dimensional cases.
     if axis == 0:
         # Concatenate along axis 0 (rows).
         if all(len(row) == len(mat1[0]) for row in mat2):
@@ -36,4 +35,16 @@ def cat_matrices(mat1, mat2, axis=0):
         else:
             return None
     else:
-        return None
+        # Recursively concatenate along higher dimensions.
+        if isinstance(mat1, list) and isinstance(mat2, list):
+            if len(mat1) != len(mat2):
+                return None
+            concatenated = []
+            for sub1, sub2 in zip(mat1, mat2):
+                result = cat_matrices(sub1, sub2, axis - 1)
+                if result is None:
+                    return None
+                concatenated.append(result)
+            return concatenated
+        else:
+            return None
