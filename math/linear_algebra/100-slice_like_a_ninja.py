@@ -16,12 +16,12 @@ def np_slice(matrix, axes={}):
     Returns:
         numpy.ndarray: a new sliced numpy array.
     """
-    # Create a slice object for each dimension of the matrix
+    # Create a slice object for each dimension of the matrix.
     slices = [slice(None)] * matrix.ndim
 
-    # Update the slice object for each axis specified in the axes dictionary
+    # Update the slice object for each axis specified in the axes dictionary.
     for axis, slice_tuple in axes.items():
         slices[axis] = slice(*slice_tuple)
 
-    # Use tuple of slice objects to slice the matrix
+    # Use tuple of slice objects to slice the matrix.
     return matrix[tuple(slices)]
